@@ -50,7 +50,7 @@ pipeline {
 
                         # Deploy the application
                         ssh -o StrictHostKeyChecking=no -i $PRIVATE_KEY_FILE ${USER}@${HOST} "mkdir -p ~/app"
-                        scp -o StrictHostKeyChecking=no -i $PRIVATE_KEY_FILE -r ./Jenkinsfile ./__pycache__ ./app.py ./requirements.txt ./run.sh ./test_app.py ${USER}@${HOST}:~/app/
+                        scp -o StrictHostKeyChecking=no -i $PRIVATE_KEY_FILE -r ./* ${USER}@${HOST}:~/app/
                         echo "Starting the application using run.sh..."
                         ssh -o StrictHostKeyChecking=no -i $PRIVATE_KEY_FILE ${USER}@${HOST} "
                             cd ~/app &&
